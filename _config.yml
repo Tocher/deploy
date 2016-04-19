@@ -10,11 +10,11 @@ default_lang: en
 default_body_class: list
 
 author:
-    name: Varya Stepanova
+    name: Sergey Kazakov
     # url:  http://example.com/
     company:
-        name: SC5 Online
-        url:  http://sc5.io
+        name: Yandex
+        url:  http://ya.ru
 
 fork_url: https://github.com/shower/shower
 progress: true
