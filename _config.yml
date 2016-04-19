@@ -1,10 +1,10 @@
 safe: true
 markdown: kramdown
-pygments: true
+highlighter: true
 permalink: /:title.html
 relative_permalinks: false
 
-default_theme: ribbon
+default_theme: shower-sc5
 default_width: 792
 default_lang: en
 default_body_class: list

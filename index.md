@@ -9,6 +9,7 @@ style: |
         color:#FFF;
         text-align:center;
         font-size:70px;
+        margin-left: -250px;
         }
     #Cover p {
         margin:10px 0 0;
@@ -17,9 +18,12 @@ style: |
         font-style:italic;
         font-size:20px;
         }
-        #Cover p a {
-            color:#FFF;
-            }
+    #Cover p a {
+      color:#FFF;
+    }
+    #Cover img {
+      max-width: 150%;
+    }
     #Picture h2 {
         color:#FFF;
         }
@@ -49,27 +53,26 @@ style: |
 
 ---
 
-# BEM {#Cover}
+# BEM Методология {#Cover}
 
-![](pictures/cover.jpg)
-<!-- photo by John Carey, fiftyfootshadows.net -->
+![](pictures/story.jpg)
 
-##[git.io/css-old-school](http://git.io/css-old-school)
+## [git.io/css-old-school](http://git.io/css-old-school)
 
-### Little frontend exersise
+### Небольшой пример страницы
 
-* …Make another menu in the sidebar
-* …This second menu should have different color scheme
-* …Place a button in the active menu item
-* …Button in the active menu item should be smaller
-* …Use smaller buttons in the main column too
+* …Сделать меню в sidebar
+* …В этом меню должна быть другая цветовая схема
+* …Поместить кнопку на активный элемент меню
+* …Кнопка в активном меню должна быть меньше
+* …Так же маленькие кнопки в колонке main
 
-## What makes CSS hard?
+## Что делает CSS сложным?
 
-* Vertical centering
-* Equal height columns
-* Browser inconsistencies
-* Unobvious tricks
+* Вертикальное центрирование
+* Колонки равной высоты
+* Неконсистентность браузеров
+* Неочевидные трюки
 
 <!--
 Before we decide what is wrong with that peice, let's guess what is hard in CSS.
@@ -83,13 +86,13 @@ When ppl are asked, the repson is usually
 But this is not true, this is easy or at least clear how to manage. You can google for all this questions.
 -->
 
-## What <b>really</b> makes CSS hard?
+## Что <b>действительно</b> делает CSS сложным?
 
-* Scoping
-* Specificity conflicts
-* Non-deterministic matches
-* Dependency management
-* Removing unused code
+* Область видимости
+* Специфичные конфликты
+* Не детерменированные совпадения
+* Управление зависимостями
+* Удаление неиспользуемого кода
 
 <!--
 The real hard problems of CSS are here:
@@ -100,20 +103,20 @@ The real hard problems of CSS are here:
 - Removing unused code
 -->
 
-## Where CSS is hard?
+## Где CSS сложный?
 {: .no-title .hard-css }
 
 <table><thead>
 
 <th markdown="1">
 
-This is not hard in CSS
+Здесь CSS не сложный
 
 </th>
 
 <th markdown="1">
 
-This is!
+А здесь да!
 
 </th>
 
@@ -141,7 +144,7 @@ This is!
 
 </tr></table>
 
-*How do we architect encapsulated components?*
+*Как мы проектируем инкапсулированные компоненты?*
 {: .next }
 
 <!--
@@ -159,12 +162,12 @@ itself.
 }
 </style>
 
-## Theory
+## Теория
 
-    .BLOCK{__ELEMENT[--MODIFIER]}
+    .БЛОК{__ЭЛЕМЕНТ[--МОДИФИКАТОР]}
 {: style="font-size: 40px" }
 
-## Just a button
+## Просто кнопка
 
     <button class="<mark>button</mark>">Button button</button>
     <span class="<mark>button</mark>">Span button</span>
@@ -173,8 +176,6 @@ itself.
 <button class="button">Button button</button>
 <span class="button">Span button</span>
 <a class="button" href="#">Link button</a>
-
-### Code: [bit.ly/b-e-m](http://bit.ly/b-e-m)
 
 <style>
 
@@ -191,7 +192,7 @@ itself.
 
 </style>
 
-## Selected button (modifier)
+## Selected button (модификатор)
 
     <button class="button">Button</button>
     <button class="button <mark>button--selected</mark>">
@@ -211,7 +212,7 @@ itself.
 
 </style>
 
-## Theme
+## Тема
 
     <button class="button">Button</button>
     <button class="button <mark>button--brand</mark>">Brand button</button>
@@ -234,7 +235,7 @@ itself.
 
 </style>
 
-## Another theme
+## Ещё одна тема
 
     <button class="button">Button</button>
     <button class="button button--night">Night button</button>
@@ -257,7 +258,7 @@ itself.
 
 </style>
 
-## State as a modifier
+## Состояние как модификатор
 
     <button class="button <mark>button--process</mark>">
       Doing smth button</button>
@@ -309,7 +310,7 @@ itself.
 
 </style>
 
-## Combine modifiers
+## Комбинирование модификаторов
 
     <button class="button button--brand button--process">
         Doing smth brand button</button>
@@ -345,7 +346,7 @@ itself.
 }
 </style>
 
-## Element
+## Элемент
 
     <div class="input">
         <input class="<mark>input__field</mark>">
@@ -388,7 +389,7 @@ itself.
 }
 </style>
 
-## Blocks of elements
+## Элементы блоков
 
     <ul class="menu">
         <li class="<mark>menu__item</mark>">Item 1</li>
@@ -396,7 +397,7 @@ itself.
         <li class="<mark>menu__item</mark>">Item 3</li>
     </ul>
 
-## Nested elements
+## Вложенные элементы
 
     <ul class="menu">
         <li class="<mark>menu__item</mark>">
@@ -405,9 +406,9 @@ itself.
         ...
     </ul>
 
-###No need in `menu__item__link`!
+###Не нужно делать `menu__item__link`!
 
-## Modified elements
+## Элементы с модификатором
 
     <ul class="menu">
         <li class="menu__item">Item 1</li>
@@ -417,23 +418,21 @@ itself.
 
 ## [git.io/css-bem-way](http://git.io/css-bem-way)
 
-### Let's try again
+### Попробуем снова, но по БЭМу
 
-* …Make another menu in the sidebar
-* …This second menu should have different color scheme
-* …Place a button in the active menu item
-* …Button in the active menu item should be smaller
-* …Use smaller buttons in the main column too
+* …Сделать меню в sidebar
+* …В этом меню должна быть другая цветовая схема
+* …Поместить кнопку на активный элемент меню
+* …Кнопка в активном меню должна быть меньше
+* …Так же маленькие кнопки в колонке main
 
-## BEM in a nutshell
+## BEM в двух словах
 {: .nutshell }
 
-* Not `#id` but `.class`
-* No parent selectors
-* "Namespace" for a component
-* Modifiers under the namespace
-
-### Miksi? Siksi! [getbem.com/faq/](http://getbem.com/faq/)
+* Не `#id` а `.class`
+* Никаких родительских селекторов
+* "Пространство имен" для компонента
+* Модификаторы под пространством имен
 
 <style>
 .nutshell h3 {
@@ -441,7 +440,7 @@ itself.
 }
 </style>
 
-## SASS syntax (or LESS)
+## SASS синтаксис (or LESS)
 {: .sass }
 
 <table>
@@ -505,7 +504,7 @@ itself.
     $text__colour--alpha: $color__primary;
     $text__colour--beta: $color__primary;
 
-## File structure
+## Файловая структура
 
     components/
       header.sass
@@ -513,7 +512,7 @@ itself.
       menu.sass
       ...
 
-## Multilingual structure
+## Структура для нескольких технологий
 
     components/
       header/
@@ -524,7 +523,7 @@ itself.
       footer/
       ...
 
-## Multilingual structure
+## Структура для нескольких технологий
 
     logo/
       logo.sass
@@ -534,14 +533,7 @@ itself.
       auth-form__background.gif
       auth-form.ctrl.js
 
-## Multilingual structure
-
-### Real life example
-
-###[git.io/jq5p](http://git.io/jq5p)
-{: .big }
-
-## One library for many sites
+## Одна библиотека для нескольких сайтов
 {: .one-lib }
 
 <div class="library">
@@ -657,7 +649,7 @@ itself.
 }
 </style>
 
-## One site, many libraries
+## Один сайт, несколько библиотек
 {: .one-site }
 
 <div class="library">
@@ -689,7 +681,6 @@ itself.
 
 </style>
 
-## BEM CSS Workshop
+## BEM Методология
 
-### [varya.me/bem-css-workshop](http://varya.me/bem-css-workshop/)
-{: .middle }
+### [tocher/bem](https://github.com/Tocher/bem-css-workshop/)
